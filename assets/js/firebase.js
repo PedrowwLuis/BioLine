@@ -3,15 +3,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebas
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDiIVLic_s18atZtBaJmTSNDVjqO_7u1FU",
-  authDomain: "turmaterca-d2878.firebaseapp.com",
-  databaseURL: "https://turmaterca-d2878-default-rtdb.firebaseio.com",
-  projectId: "turmaterca-d2878",
-  storageBucket: "turmaterca-d2878.appspot.com",
-  messagingSenderId: "179178679657",
-  appId: "1:179178679657:web:ad5cb958aec320facc21f8",
-  measurementId: "G-492TNV85B3"
+  apiKey: "AIzaSyBVggxkrDOOme528eysTI7TOuRm4wZHeEQ",
+  authDomain: "corpodealunos-bec34.firebaseapp.com",
+  projectId: "corpodealunos-bec34",
+  storageBucket: "corpodealunos-bec34.appspot.com",
+  messagingSenderId: "797128992049",
+  appId: "1:797128992049:web:66feec0651ee7adff33c10",
+  measurementId: "G-KV9LMZC9PH"
 };
+
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
