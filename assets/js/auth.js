@@ -9,24 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const formpost = document.querySelector ('.form-post')
     const titulologin = document.querySelector('.titulo-login')
     const mensagens = document.querySelector('.mensagens')
-
-    //Mensgens
-    const LogadoSucesso = () =>{
-        mensagens.innerHTML ='Usuário logado com sucesso'
-    }
     
-    const VerifiqueConexao = ( )=>{
-        mensagens.innerHTML ='Verifique sua conexão ou email e senha'
+    //alerta mensagens
+    const alertaUsuario = (alerta) =>{
+        mensagens.innerHTML = alerta
     }
 
-    const LogoutSucesso = () =>{
-        mensagens.innerHTML = 'Logout realizado com sucesso'
-    }
-
-    const ErroInesperado = () => {
-        mensagens.innerHTML = 'Um erro inesperado aconteceu'
-    }
-
+    //limpar mensagem
+    const limparMensagem = () =>{
+        setInterval(()=>{
+            mensagens.innerHTML = ''
+        }, 3000)
+    } 
     
     //Evento de login
     if (formLogin){
@@ -39,12 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
             signInWithEmailAndPassword(auth, email, senha)
             .then((userCredential) => {
                 const user = userCredential.user
-                LogadoSucesso()
+                alertaUsuario('Usuário logado com sucesso')
+                limparMensagem()
                 emailInput.value = ''
                 senhaInput.value = ''
             })
             .catch(()=>{
-                VerifiqueConexao()
+                alertaUsuario('Verifique sua conexão ou email e senha')
+                limparMensagem()
             })
         
         })  
@@ -53,10 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
    if(linksair) {
     linksair.addEventListener('click',() => {
         signOut(auth).then(()=>{
-            LogoutSucesso()
+            alertaUsuario('Logout realizado com sucesso')
+            limparMensagem()
         })
         .catch(()=> {
-            ErroInesperado()
+            alertaUsuario('Um erro inesperado aconteceu')
+            limparMensagem()
         })
     })
 }
