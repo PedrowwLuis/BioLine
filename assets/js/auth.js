@@ -2,6 +2,7 @@ import { auth } from './firebase.js'
 import { signInWithEmailAndPassword , signOut , onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"
 
 document.addEventListener('DOMContentLoaded', () => {
+    //Declarando as variaveis
     const formLogin = document.querySelector('.form-login')
     const emailInput = document.querySelector('.email-admin')
     const senhaInput = document.querySelector('.senha-admin')
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const titulologin = document.querySelector('.titulo-login')
     const mensagens = document.querySelector('.mensagens')
     
-    //alerta mensagens
+    //Função alerta/mensagens
     const alertaUsuario = (alerta) =>{
         mensagens.innerHTML = alerta
     }
@@ -62,6 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
         onAuthStateChanged(auth,(user) => { 
             if(user){
                 const uid = user.uid
+
+                //Verificações de elementos
                 if(linksair) linksair.classList.remove('hide')
                 if(formLogin) formLogin.classList.add('hide')
                 if(formpost) formpost.classList.remove('hide')
